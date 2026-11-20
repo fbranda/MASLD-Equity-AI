@@ -1,0 +1,1097 @@
+{
+  "analysis_type": "Observed NHANES XPT data",
+  "data_sources": {
+    "development": {
+      "base": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/",
+      "files": [
+        "P_DEMO.xpt",
+        "P_LUX.xpt",
+        "P_BMX.xpt",
+        "P_BIOPRO.xpt",
+        "P_CBC.xpt",
+        "P_GHB.xpt",
+        "P_DIQ.xpt"
+      ]
+    },
+    "validation": {
+      "base": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/",
+      "files": [
+        "DEMO_L.xpt",
+        "LUX_L.xpt",
+        "BMX_L.xpt",
+        "BIOPRO_L.xpt",
+        "CBC_L.xpt",
+        "GHB_L.xpt",
+        "DIQ_L.xpt"
+      ]
+    }
+  },
+  "inclusion": {
+    "development": {
+      "examined_20plus": 9232,
+      "at_risk_20plus": 7017,
+      "valid_vcte_at_risk": 5979,
+      "eligible": 5604
+    },
+    "validation": {
+      "examined_20plus": 7809,
+      "at_risk_20plus": 5004,
+      "valid_vcte_at_risk": 4152,
+      "eligible": 3736
+    }
+  },
+  "development": {
+    "n": 5604,
+    "events12": 229,
+    "weighted_prevalence12": 0.04135273110640741,
+    "median_age": 54.0,
+    "mean_age_weighted": 49.849420464654,
+    "mean_bmi_weighted": 31.570838073332727,
+    "female_percent": 48.44443143183499,
+    "diabetes_percent": 13.80853469010908,
+    "cap_steatosis_n": 3797
+  },
+  "validation": {
+    "n": 3736,
+    "events12": 206,
+    "weighted_prevalence12": 0.053954531362863704,
+    "median_age": 58.0,
+    "mean_age_weighted": 49.97648516327899,
+    "mean_bmi_weighted": 31.416087322548343,
+    "female_percent": 48.426145947753454,
+    "diabetes_percent": 13.593866301072133,
+    "cap_steatosis_n": 2467
+  },
+  "model_stats": {
+    "FIB-4": {
+      "auroc": 0.6376130081394942,
+      "auprc": 0.16156976112563615,
+      "brier": null,
+      "calibration_slope": null,
+      "calibration_intercept": null,
+      "auroc_ci95": [
+        0.6158099769658714,
+        0.6617777816906188
+      ],
+      "difference_auroc_vs_fib4_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "Logistic": {
+      "auroc": 0.8498038710288682,
+      "auprc": 0.35168501021800663,
+      "brier": 0.04335985315988341,
+      "calibration_slope": 0.8982901609851927,
+      "calibration_intercept": 0.1976614920358444,
+      "development_cv_auroc_mean": 0.8674446466689136,
+      "development_cv_auroc_sd": 0.02856323935586615,
+      "auroc_ci95": [
+        0.8274745351882112,
+        0.8745332609029463
+      ],
+      "difference_auroc_vs_fib4_ci95": [
+        0.18516093857368304,
+        0.2402625961739487
+      ]
+    },
+    "Gradient boosting": {
+      "auroc": 0.8639106951774489,
+      "auprc": 0.3946503023679892,
+      "brier": 0.04187166451277598,
+      "calibration_slope": 1.1209358935914677,
+      "calibration_intercept": 0.7827378983909373,
+      "development_cv_auroc_mean": 0.8626498595663408,
+      "development_cv_auroc_sd": 0.030436695242352648,
+      "auroc_ci95": [
+        0.8460710511026641,
+        0.881086697547189
+      ],
+      "difference_auroc_vs_fib4_ci95": [
+        0.19803370096484293,
+        0.25435130602453404
+      ]
+    }
+  },
+  "policies": {
+    "FIB-4": {
+      "10": {
+        "referral_fraction": 0.09999999999999988,
+        "case_capture": 0.24663756805489268,
+        "yield": 0.13307214400878156,
+        "missed_per_1000": 40.64731696198557
+      },
+      "20": {
+        "referral_fraction": 0.1999999999999997,
+        "case_capture": 0.3943742857334809,
+        "yield": 0.10639139884157049,
+        "missed_per_1000": 32.67625159454965,
+        "case_capture_ci95": [
+          0.35765457742191537,
+          0.4200622713611682
+        ],
+        "difference_vs_fib4_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "30": {
+        "referral_fraction": 0.2999999999999992,
+        "case_capture": 0.47301050902098263,
+        "yield": 0.08507020114645601,
+        "missed_per_1000": 28.433471018926976
+      }
+    },
+    "Logistic": {
+      "10": {
+        "referral_fraction": 0.10000000000000006,
+        "case_capture": 0.5618462389913466,
+        "yield": 0.3031415052276561,
+        "missed_per_1000": 23.640380840098082
+      },
+      "20": {
+        "referral_fraction": 0.20000000000000007,
+        "case_capture": 0.6717622709339011,
+        "yield": 0.1812230925774585,
+        "missed_per_1000": 17.709912847372,
+        "case_capture_ci95": [
+          0.6261504758664463,
+          0.7233022930653522
+        ],
+        "difference_vs_fib4_ci95": [
+          0.22117982529247365,
+          0.3480969467509978
+        ]
+      },
+      "30": {
+        "referral_fraction": 0.30000000000000027,
+        "case_capture": 0.788502663839616,
+        "yield": 0.141810972352787,
+        "missed_per_1000": 11.411239657027572
+      }
+    },
+    "Gradient boosting": {
+      "10": {
+        "referral_fraction": 0.09999999999999998,
+        "case_capture": 0.5670178065599475,
+        "yield": 0.3059318002734088,
+        "missed_per_1000": 23.36135133552284
+      },
+      "20": {
+        "referral_fraction": 0.2000000000000003,
+        "case_capture": 0.7007493903380657,
+        "yield": 0.1890430247925137,
+        "missed_per_1000": 16.145926404360917,
+        "case_capture_ci95": [
+          0.6598734714010759,
+          0.7424822356573173
+        ],
+        "difference_vs_fib4_ci95": [
+          0.2699039457907311,
+          0.35682226931499794
+        ]
+      },
+      "30": {
+        "referral_fraction": 0.30000000000000016,
+        "case_capture": 0.8103522209043473,
+        "yield": 0.14574058105916618,
+        "missed_per_1000": 10.23235704511384
+      }
+    }
+  },
+  "equal_opportunity_sex": {
+    "FIB-4": {
+      "referral_fraction": 0.20000000000000007,
+      "case_capture": 0.388340889224476,
+      "yield": 0.10476375343572182,
+      "missed_per_1000": 33.00178067571934
+    },
+    "Logistic": {
+      "referral_fraction": 0.19999999999999996,
+      "case_capture": 0.6660847650736612,
+      "yield": 0.17969145673746284,
+      "missed_per_1000": 18.016240015371153
+    },
+    "Gradient boosting": {
+      "referral_fraction": 0.20000000000000012,
+      "case_capture": 0.6943250704573619,
+      "yield": 0.18730991895007135,
+      "missed_per_1000": 16.49254757284942
+    }
+  },
+  "subgroups": {
+    "FIB-4": {
+      "sex_group": {
+        "Female": {
+          "n": 1984,
+          "events": 94,
+          "referral_rate": 0.18594522148581716,
+          "case_capture": 0.5047878841517979
+        },
+        "Male": {
+          "n": 1752,
+          "events": 112,
+          "referral_rate": 0.21319697292549916,
+          "case_capture": 0.32036693229200286
+        }
+      },
+      "age_group": {
+        "20-44": {
+          "n": 1109,
+          "events": 38,
+          "referral_rate": 0.014933020787090804,
+          "case_capture": 0.16176281570368453
+        },
+        "45-64": {
+          "n": 1351,
+          "events": 93,
+          "referral_rate": 0.1625435795452329,
+          "case_capture": 0.363225495799625
+        },
+        "65+": {
+          "n": 1276,
+          "events": 75,
+          "referral_rate": 0.5909762907928205,
+          "case_capture": 0.7104850458167951
+        }
+      },
+      "race_group": {
+        "Mexican American": {
+          "n": 277,
+          "events": 17,
+          "referral_rate": 0.09651962025539941,
+          "case_capture": 0.5234736319976074
+        },
+        "NH Black": {
+          "n": 455,
+          "events": 17,
+          "referral_rate": 0.1715035117336051,
+          "case_capture": 0.3382817623674736
+        },
+        "NH White": {
+          "n": 2178,
+          "events": 139,
+          "referral_rate": 0.23255795439384638,
+          "case_capture": 0.37690829988608376
+        },
+        "Other Hispanic": {
+          "n": 409,
+          "events": 21,
+          "referral_rate": 0.157045845303737,
+          "case_capture": 0.4261486289780296
+        },
+        "Other/multiracial": {
+          "n": 242,
+          "events": 10,
+          "referral_rate": 0.16095498502177494,
+          "case_capture": 0.5163441366235557
+        }
+      }
+    },
+    "Logistic": {
+      "sex_group": {
+        "Female": {
+          "n": 1984,
+          "events": 94,
+          "referral_rate": 0.14950134158098707,
+          "case_capture": 0.6567791963739815
+        },
+        "Male": {
+          "n": 1752,
+          "events": 112,
+          "referral_rate": 0.24741657275191278,
+          "case_capture": 0.6818050347825616
+        }
+      },
+      "age_group": {
+        "20-44": {
+          "n": 1109,
+          "events": 38,
+          "referral_rate": 0.08781915788433668,
+          "case_capture": 0.4365329860162624
+        },
+        "45-64": {
+          "n": 1351,
+          "events": 93,
+          "referral_rate": 0.25460386287639,
+          "case_capture": 0.8384134808726219
+        },
+        "65+": {
+          "n": 1276,
+          "events": 75,
+          "referral_rate": 0.31448822416447186,
+          "case_capture": 0.6205644874653301
+        }
+      },
+      "race_group": {
+        "Mexican American": {
+          "n": 277,
+          "events": 17,
+          "referral_rate": 0.17818533385949878,
+          "case_capture": 0.7375124078587603
+        },
+        "NH Black": {
+          "n": 455,
+          "events": 17,
+          "referral_rate": 0.2375784250618417,
+          "case_capture": 0.5908359762979777
+        },
+        "NH White": {
+          "n": 2178,
+          "events": 139,
+          "referral_rate": 0.20467557488541527,
+          "case_capture": 0.6170254592319224
+        },
+        "Other Hispanic": {
+          "n": 409,
+          "events": 21,
+          "referral_rate": 0.19087487391198424,
+          "case_capture": 0.8890047620241606
+        },
+        "Other/multiracial": {
+          "n": 242,
+          "events": 10,
+          "referral_rate": 0.22931579076470346,
+          "case_capture": 0.9696195692674804
+        }
+      }
+    },
+    "Gradient boosting": {
+      "sex_group": {
+        "Female": {
+          "n": 1984,
+          "events": 94,
+          "referral_rate": 0.17658759258138815,
+          "case_capture": 0.6616373508645601
+        },
+        "Male": {
+          "n": 1752,
+          "events": 112,
+          "referral_rate": 0.22198347747084077,
+          "case_capture": 0.7269651696496529
+        }
+      },
+      "age_group": {
+        "20-44": {
+          "n": 1109,
+          "events": 38,
+          "referral_rate": 0.11460860671193872,
+          "case_capture": 0.6569151829509892
+        },
+        "45-64": {
+          "n": 1351,
+          "events": 93,
+          "referral_rate": 0.24074266340123412,
+          "case_capture": 0.7453645055345444
+        },
+        "65+": {
+          "n": 1276,
+          "events": 75,
+          "referral_rate": 0.28844951057138535,
+          "case_capture": 0.665829053504828
+        }
+      },
+      "race_group": {
+        "Mexican American": {
+          "n": 277,
+          "events": 17,
+          "referral_rate": 0.2005448220510495,
+          "case_capture": 0.6345711974848751
+        },
+        "NH Black": {
+          "n": 455,
+          "events": 17,
+          "referral_rate": 0.25603714308495706,
+          "case_capture": 0.9100381900878896
+        },
+        "NH White": {
+          "n": 2178,
+          "events": 139,
+          "referral_rate": 0.1971195691904113,
+          "case_capture": 0.6419843807673751
+        },
+        "Other Hispanic": {
+          "n": 409,
+          "events": 21,
+          "referral_rate": 0.20242442374501785,
+          "case_capture": 0.8690115469420295
+        },
+        "Other/multiracial": {
+          "n": 242,
+          "events": 10,
+          "referral_rate": 0.20494938477369226,
+          "case_capture": 0.91709380033502
+        }
+      }
+    }
+  },
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "diabetes",
+    "hba1c",
+    "ast",
+    "alt",
+    "platelets",
+    "ggt"
+  ],
+  "seed": 20261119,
+  "bootstrap_reps": 450,
+  "data_verified_as_xpt": true,
+  "sensitivity_lsm8": {
+    "FIB-4": {
+      "auroc": 0.5918768386198919,
+      "auprc": 0.22911462786310957,
+      "brier": null,
+      "calibration_slope": null,
+      "calibration_intercept": null
+    },
+    "Logistic": {
+      "auroc": 0.7840077872190064,
+      "auprc": 0.44362762634297004,
+      "brier": 0.1009267854336581,
+      "calibration_slope": 0.8685747109771264,
+      "calibration_intercept": 0.11791869498578426
+    },
+    "Gradient boosting": {
+      "auroc": 0.7892302530978195,
+      "auprc": 0.4571321535832774,
+      "brier": 0.09970659656554924,
+      "calibration_slope": 0.8923846054591952,
+      "calibration_intercept": 0.1887333533308591
+    }
+  },
+  "sensitivity_cap_subset": {
+    "n": 2467,
+    "events12": 167,
+    "auroc": {
+      "FIB-4": 0.6136612629813833,
+      "Logistic": 0.8405206836504956,
+      "Gradient boosting": 0.8511777299076044
+    }
+  },
+  "permutation_importance": {
+    "age": 0.025199999999999972,
+    "sex": 0.010727485380116975,
+    "bmi": 0.14210994152046796,
+    "diabetes": 0.008554385964912342,
+    "hba1c": 0.007698245614035121,
+    "ast": 0.013288888888888878,
+    "alt": -0.0009286549707602232,
+    "platelets": 0.013185964912280745,
+    "ggt": 0.06410292397660816
+  },
+  "missingness": {
+    "development": {
+      "age": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "sex": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "bmi": {
+        "n_missing": 27,
+        "percent_missing": 0.4817987152034261
+      },
+      "diabetes": {
+        "n_missing": 3,
+        "percent_missing": 0.05353319057815846
+      },
+      "hba1c": {
+        "n_missing": 3,
+        "percent_missing": 0.05353319057815846
+      },
+      "ast": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "alt": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "platelets": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "ggt": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      }
+    },
+    "validation": {
+      "age": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "sex": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "bmi": {
+        "n_missing": 11,
+        "percent_missing": 0.2944325481798715
+      },
+      "diabetes": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "hba1c": {
+        "n_missing": 1,
+        "percent_missing": 0.02676659528907923
+      },
+      "ast": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "alt": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "platelets": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      },
+      "ggt": {
+        "n_missing": 0,
+        "percent_missing": 0.0
+      }
+    }
+  },
+  "further_descriptives": {
+    "development": {
+      "outcome8_n": 655,
+      "outcome8_weighted_prevalence": 0.10786165018619459,
+      "weight_sum": 156865810.387162,
+      "age_unweighted_median": 54.0,
+      "bmi_unweighted_median": 30.1,
+      "age_by_group": {
+        "20-44": 1922,
+        "45-64": 2231,
+        "65+": 1451
+      },
+      "n_vcte12_ratio": 229,
+      "liver_stiffness_median": 5.1,
+      "liver_stiffness_p95": 10.984999999999946,
+      "laboratory_extremes": {
+        "ast": {
+          "min": 6.0,
+          "max": 294.0
+        },
+        "alt": {
+          "min": 2.0,
+          "max": 213.0
+        },
+        "platelets": {
+          "min": 8.0,
+          "max": 818.0
+        },
+        "ggt": {
+          "min": 3.0,
+          "max": 708.0
+        }
+      },
+      "female_n": 2774,
+      "lsm_ge50_n": 17
+    },
+    "validation": {
+      "outcome8_n": 542,
+      "outcome8_weighted_prevalence": 0.14071457526423453,
+      "weight_sum": 157691735.56193084,
+      "age_unweighted_median": 58.0,
+      "bmi_unweighted_median": 29.9,
+      "age_by_group": {
+        "20-44": 1109,
+        "45-64": 1351,
+        "65+": 1276
+      },
+      "n_vcte12_ratio": 206,
+      "liver_stiffness_median": 5.2,
+      "liver_stiffness_p95": 12.3,
+      "laboratory_extremes": {
+        "ast": {
+          "min": 7.0,
+          "max": 363.0
+        },
+        "alt": {
+          "min": 3.0,
+          "max": 350.0
+        },
+        "platelets": {
+          "min": 61.0,
+          "max": 675.0
+        },
+        "ggt": {
+          "min": 4.0,
+          "max": 1541.0
+        }
+      },
+      "female_n": 1984,
+      "lsm_ge50_n": 30
+    }
+  },
+  "reduced_predictors": {
+    "features": [
+      "age",
+      "sex",
+      "bmi",
+      "diabetes",
+      "ast",
+      "alt",
+      "platelets"
+    ],
+    "models": {
+      "FIB-4": {
+        "auroc": 0.6376130081394942,
+        "case_capture_at_20": 0.3943742857334809
+      },
+      "Logistic": {
+        "auroc": 0.8410535363947339,
+        "case_capture_at_20": 0.6664880141948629
+      },
+      "Gradient boosting": {
+        "auroc": 0.839980178554681,
+        "case_capture_at_20": 0.6427629549220617
+      }
+    }
+  },
+  "fib4_clinical_threshold": {
+    "cutoff_if_age_below65": 1.3,
+    "cutoff_if_age65plus": 2.0,
+    "fraction_referred": 0.14820706605879222,
+    "case_capture": 0.3302843711558058,
+    "ppv": 0.12023946587756144
+  },
+  "detailed_equity": {
+    "FIB-4": {
+      "sex": {
+        "Female": {
+          "n": 1984,
+          "events": 94,
+          "fraction_referred": 0.18594522148581716,
+          "case_capture": 0.5047878841517979,
+          "weighted_prevalence": 0.044710819767647944
+        },
+        "Male": {
+          "n": 1752,
+          "events": 112,
+          "fraction_referred": 0.21319697292549916,
+          "case_capture": 0.32036693229200286,
+          "weighted_prevalence": 0.06263407131648796
+        }
+      },
+      "age": {
+        "20-44": {
+          "n": 1109,
+          "events": 38,
+          "fraction_referred": 0.014933020787090804,
+          "case_capture": 0.16176281570368453,
+          "weighted_prevalence": 0.03669762638098263
+        },
+        "45-64": {
+          "n": 1351,
+          "events": 93,
+          "fraction_referred": 0.1625435795452329,
+          "case_capture": 0.363225495799625,
+          "weighted_prevalence": 0.0700756484983478
+        },
+        "65+": {
+          "n": 1276,
+          "events": 75,
+          "fraction_referred": 0.5909762907928205,
+          "case_capture": 0.7104850458167951,
+          "weighted_prevalence": 0.059330728021610664
+        }
+      },
+      "race": {
+        "Mexican American": {
+          "n": 277,
+          "events": 17,
+          "fraction_referred": 0.09651962025539941,
+          "case_capture": 0.5234736319976074,
+          "weighted_prevalence": 0.04715797393171401
+        },
+        "NH Asian": {
+          "n": 175,
+          "events": 2,
+          "fraction_referred": 0.17265589840745524,
+          "case_capture": 0.14821506150845323,
+          "weighted_prevalence": 0.009273953633483656
+        },
+        "NH Black": {
+          "n": 455,
+          "events": 17,
+          "fraction_referred": 0.1715035117336051,
+          "case_capture": 0.3382817623674736,
+          "weighted_prevalence": 0.03386247696394926
+        },
+        "NH White": {
+          "n": 2178,
+          "events": 139,
+          "fraction_referred": 0.23255795439384638,
+          "case_capture": 0.37690829988608376,
+          "weighted_prevalence": 0.06287583849636365
+        },
+        "Other Hispanic": {
+          "n": 409,
+          "events": 21,
+          "fraction_referred": 0.157045845303737,
+          "case_capture": 0.4261486289780296,
+          "weighted_prevalence": 0.0567767248451636
+        },
+        "Other/multiracial": {
+          "n": 242,
+          "events": 10,
+          "fraction_referred": 0.16095498502177494,
+          "case_capture": 0.5163441366235557,
+          "weighted_prevalence": 0.043983562390564925
+        }
+      }
+    },
+    "Logistic": {
+      "sex": {
+        "Female": {
+          "n": 1984,
+          "events": 94,
+          "fraction_referred": 0.14950134158098707,
+          "case_capture": 0.6567791963739815,
+          "weighted_prevalence": 0.044710819767647944
+        },
+        "Male": {
+          "n": 1752,
+          "events": 112,
+          "fraction_referred": 0.24741657275191278,
+          "case_capture": 0.6818050347825616,
+          "weighted_prevalence": 0.06263407131648796
+        }
+      },
+      "age": {
+        "20-44": {
+          "n": 1109,
+          "events": 38,
+          "fraction_referred": 0.08781915788433668,
+          "case_capture": 0.4365329860162624,
+          "weighted_prevalence": 0.03669762638098263
+        },
+        "45-64": {
+          "n": 1351,
+          "events": 93,
+          "fraction_referred": 0.25460386287639,
+          "case_capture": 0.8384134808726219,
+          "weighted_prevalence": 0.0700756484983478
+        },
+        "65+": {
+          "n": 1276,
+          "events": 75,
+          "fraction_referred": 0.31448822416447186,
+          "case_capture": 0.6205644874653301,
+          "weighted_prevalence": 0.059330728021610664
+        }
+      },
+      "race": {
+        "Mexican American": {
+          "n": 277,
+          "events": 17,
+          "fraction_referred": 0.17818533385949878,
+          "case_capture": 0.7375124078587603,
+          "weighted_prevalence": 0.04715797393171401
+        },
+        "NH Asian": {
+          "n": 175,
+          "events": 2,
+          "fraction_referred": 0.06572017431413897,
+          "case_capture": 0.8517849384915468,
+          "weighted_prevalence": 0.009273953633483656
+        },
+        "NH Black": {
+          "n": 455,
+          "events": 17,
+          "fraction_referred": 0.2375784250618417,
+          "case_capture": 0.5908359762979777,
+          "weighted_prevalence": 0.03386247696394926
+        },
+        "NH White": {
+          "n": 2178,
+          "events": 139,
+          "fraction_referred": 0.20467557488541527,
+          "case_capture": 0.6170254592319224,
+          "weighted_prevalence": 0.06287583849636365
+        },
+        "Other Hispanic": {
+          "n": 409,
+          "events": 21,
+          "fraction_referred": 0.19087487391198424,
+          "case_capture": 0.8890047620241606,
+          "weighted_prevalence": 0.0567767248451636
+        },
+        "Other/multiracial": {
+          "n": 242,
+          "events": 10,
+          "fraction_referred": 0.22931579076470346,
+          "case_capture": 0.9696195692674804,
+          "weighted_prevalence": 0.043983562390564925
+        }
+      }
+    },
+    "Gradient boosting": {
+      "sex": {
+        "Female": {
+          "n": 1984,
+          "events": 94,
+          "fraction_referred": 0.17658759258138815,
+          "case_capture": 0.6616373508645601,
+          "weighted_prevalence": 0.044710819767647944
+        },
+        "Male": {
+          "n": 1752,
+          "events": 112,
+          "fraction_referred": 0.22198347747084077,
+          "case_capture": 0.7269651696496529,
+          "weighted_prevalence": 0.06263407131648796
+        }
+      },
+      "age": {
+        "20-44": {
+          "n": 1109,
+          "events": 38,
+          "fraction_referred": 0.11460860671193872,
+          "case_capture": 0.6569151829509892,
+          "weighted_prevalence": 0.03669762638098263
+        },
+        "45-64": {
+          "n": 1351,
+          "events": 93,
+          "fraction_referred": 0.24074266340123412,
+          "case_capture": 0.7453645055345444,
+          "weighted_prevalence": 0.0700756484983478
+        },
+        "65+": {
+          "n": 1276,
+          "events": 75,
+          "fraction_referred": 0.28844951057138535,
+          "case_capture": 0.665829053504828,
+          "weighted_prevalence": 0.059330728021610664
+        }
+      },
+      "race": {
+        "Mexican American": {
+          "n": 277,
+          "events": 17,
+          "fraction_referred": 0.2005448220510495,
+          "case_capture": 0.6345711974848751,
+          "weighted_prevalence": 0.04715797393171401
+        },
+        "NH Asian": {
+          "n": 175,
+          "events": 2,
+          "fraction_referred": 0.08547516095042149,
+          "case_capture": 0.8517849384915468,
+          "weighted_prevalence": 0.009273953633483656
+        },
+        "NH Black": {
+          "n": 455,
+          "events": 17,
+          "fraction_referred": 0.25603714308495706,
+          "case_capture": 0.9100381900878896,
+          "weighted_prevalence": 0.03386247696394926
+        },
+        "NH White": {
+          "n": 2178,
+          "events": 139,
+          "fraction_referred": 0.1971195691904113,
+          "case_capture": 0.6419843807673751,
+          "weighted_prevalence": 0.06287583849636365
+        },
+        "Other Hispanic": {
+          "n": 409,
+          "events": 21,
+          "fraction_referred": 0.20242442374501785,
+          "case_capture": 0.8690115469420295,
+          "weighted_prevalence": 0.0567767248451636
+        },
+        "Other/multiracial": {
+          "n": 242,
+          "events": 10,
+          "fraction_referred": 0.20494938477369226,
+          "case_capture": 0.91709380033502,
+          "weighted_prevalence": 0.043983562390564925
+        }
+      }
+    }
+  },
+  "equity_bootstrap_intervals": {
+    "FIB-4": {
+      "male_minus_female_referral": {
+        "point_estimate": 0.027251751439682004,
+        "ci95": [
+          0.008363228565279294,
+          0.04337988333385079
+        ]
+      },
+      "male_minus_female_capture": {
+        "point_estimate": -0.184420951859795,
+        "ci95": [
+          -0.2788627088666738,
+          -0.09491177773393311
+        ]
+      },
+      "old_minus_young_referral": {
+        "point_estimate": 0.5760432700057297,
+        "ci95": [
+          0.5510590478443698,
+          0.6084580493281613
+        ]
+      },
+      "old_minus_young_capture": {
+        "point_estimate": 0.5487222301131105,
+        "ci95": [
+          0.4433252443047631,
+          0.6399177154791589
+        ]
+      },
+      "equal_sex_minus_global_capture": {
+        "point_estimate": -0.0060333965090048625,
+        "ci95": [
+          -0.026527697398071426,
+          0.011796424789337937
+        ]
+      },
+      "equal_sex_minus_global_referral_gap": {
+        "point_estimate": -0.027251751439682004,
+        "ci95": [
+          -0.0433798833338508,
+          -0.008363228565279294
+        ]
+      }
+    },
+    "Logistic": {
+      "male_minus_female_referral": {
+        "point_estimate": 0.09791523117092571,
+        "ci95": [
+          0.07731106165786965,
+          0.12283172844153076
+        ]
+      },
+      "male_minus_female_capture": {
+        "point_estimate": 0.02502583840858008,
+        "ci95": [
+          -0.0650604249544572,
+          0.11688087120746203
+        ]
+      },
+      "old_minus_young_referral": {
+        "point_estimate": 0.22666906628013517,
+        "ci95": [
+          0.19751707987404007,
+          0.2598648177287304
+        ]
+      },
+      "old_minus_young_capture": {
+        "point_estimate": 0.1840315014490677,
+        "ci95": [
+          -0.011867649751030915,
+          0.348410113560666
+        ]
+      },
+      "equal_sex_minus_global_capture": {
+        "point_estimate": -0.005677505860239851,
+        "ci95": [
+          -0.030505184925271617,
+          0.009431191416517586
+        ]
+      },
+      "equal_sex_minus_global_referral_gap": {
+        "point_estimate": -0.09791523117092571,
+        "ci95": [
+          -0.12283172844153076,
+          -0.07731106165786965
+        ]
+      }
+    },
+    "Gradient boosting": {
+      "male_minus_female_referral": {
+        "point_estimate": 0.04539588488945262,
+        "ci95": [
+          0.019516705246285362,
+          0.06771645002085538
+        ]
+      },
+      "male_minus_female_capture": {
+        "point_estimate": 0.06532781878509275,
+        "ci95": [
+          -0.0387616066776645,
+          0.14707122093542543
+        ]
+      },
+      "old_minus_young_referral": {
+        "point_estimate": 0.17384090385944662,
+        "ci95": [
+          0.15350815889188585,
+          0.201212316903788
+        ]
+      },
+      "old_minus_young_capture": {
+        "point_estimate": 0.008913870553838854,
+        "ci95": [
+          -0.14022375757804084,
+          0.1866198259277958
+        ]
+      },
+      "equal_sex_minus_global_capture": {
+        "point_estimate": -0.006424319880703799,
+        "ci95": [
+          -0.036430390328505445,
+          0.01623883330963582
+        ]
+      },
+      "equal_sex_minus_global_referral_gap": {
+        "point_estimate": -0.04539588488945262,
+        "ci95": [
+          -0.0677164500208554,
+          -0.019516705246285376
+        ]
+      }
+    }
+  },
+  "analysis_addendum": "Valid XPT input, threshold and data were fixed by local scripts; all results observational.",
+  "weighted_permutation_importance": {
+    "age": {
+      "mean_auroc_drop": 0.02422538577105129,
+      "sd_auroc_drop": 0.00857942365764166
+    },
+    "sex": {
+      "mean_auroc_drop": 0.005536261575343482,
+      "sd_auroc_drop": 0.003140901865116815
+    },
+    "bmi": {
+      "mean_auroc_drop": 0.16563428177053868,
+      "sd_auroc_drop": 0.013989497284763583
+    },
+    "diabetes": {
+      "mean_auroc_drop": 0.007226556358701175,
+      "sd_auroc_drop": 0.0024078204497854114
+    },
+    "hba1c": {
+      "mean_auroc_drop": 0.006728916134477421,
+      "sd_auroc_drop": 0.0036058772562635394
+    },
+    "ast": {
+      "mean_auroc_drop": 0.00816359179219972,
+      "sd_auroc_drop": 0.0026426272813713544
+    },
+    "alt": {
+      "mean_auroc_drop": 0.0008227466356770395,
+      "sd_auroc_drop": 0.0020884810243084707
+    },
+    "platelets": {
+      "mean_auroc_drop": 0.01297494536212931,
+      "sd_auroc_drop": 0.0030842252987268236
+    },
+    "ggt": {
+      "mean_auroc_drop": 0.040363106934317855,
+      "sd_auroc_drop": 0.006822245920320967
+    }
+  }
+}

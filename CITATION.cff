@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or aggregate outputs, please cite this software repository. Cite the associated research article once available."
+title: "MASLD-Equity-AI: Capacity-constrained and equity-audited liver elastography prioritization"
+type: software
+authors:
+  - family-names: Branda
+    given-names: Francesco
+version: "0.1.0"
+date-released: 2026-11-19
+license: MIT
+keywords:
+  - MASLD
+  - NHANES
+  - liver stiffness
+  - explainable machine learning
+  - health equity
+  - diagnostic capacity

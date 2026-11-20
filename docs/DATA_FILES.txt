@@ -1,0 +1,25 @@
+OFFICIAL PUBLIC-USE NHANES XPT FILES REQUIRED (14 total)
+Directory: data/
+Download base URL: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/
+
+2017 release, under 2017/DataFiles/:
+P_DEMO.xpt
+P_LUX.xpt
+P_BMX.xpt
+P_BIOPRO.xpt
+P_CBC.xpt
+P_GHB.xpt
+P_DIQ.xpt
+
+2021 release, under 2021/DataFiles/:
+DEMO_L.xpt
+LUX_L.xpt
+BMX_L.xpt
+BIOPRO_L.xpt
+CBC_L.xpt
+GHB_L.xpt
+DIQ_L.xpt
+
+The run_all.sh script will fetch missing XPT files if normal internet access is available.
+Alternatively download them manually from the CDC and place in data/ before running.
+No raw participant-level data are redistributed in this project archive.
